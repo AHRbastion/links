@@ -148,7 +148,7 @@
       p[i].addEventListener("click", function () {
         var value = this.getAttribute("data-href");
         video.setAttribute("src", value);
-        var edited= value.slice(0,-4);
+        var edited= value.slice(48,-4);
         title.innerHTML = "Laravel Part " + edited;
       }
       );
