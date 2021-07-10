@@ -6,35 +6,50 @@
     <title>Laravel Paid Rabbil
     </title>
     <style>
-      *{
-        margin:0;
-        padding:0;
-      }
-      p{
-        display: block;
-        width: 100%;
-        padding: 10px;
-        margin: 10px auto;
-        text-decoration: none;
-        color: white;
-        background: #3fa99a;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      .con{
-      }
-      #video{
-        height: 50vh;
-        width:100%;
-        background:#3fa99a;
-        position: sticky;
-        margin: 5px auto;
-        top: 0;
-        display: block;
-      }
-    </style>
+      body {
+      background: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px auto;
+      text-decoration: none;
+      color: white;
+      background: #333;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .con {}
+
+    #video {
+      height: 50vh;
+      width: 100%;
+      background: #333;
+      position: sticky;
+      margin: 5px auto;
+      top: 0;
+      display: block;
+    }
+
+    #title {
+      position: sticky;
+      top: 0;
+      text-align: center;
+      color: #d1d1d1;
+      z-index: 11;
+    }
+  </style>
   </head>
   <body>
+    <span id="title">Laravel Part 1</span>
     <video controls src="http://codesilicon.com/paidvideos/Laravel/Video/1.mp4" id="video">
     </video>
     <div class="con">
@@ -126,14 +141,17 @@
     <!-- http://codesilicon.com/paidvideos/Laravel/
     -->
     <script>
-      var p=document.querySelectorAll("p");
-      var video=document.getElementById("video");
-      for(i=0; i< p.length; i++){
-        p[i].addEventListener("click",function(){
-          var value=this.getAttribute("data-href");
-          video.setAttribute("src",value);
-        }
-                             )
+    var p = document.querySelectorAll("p");
+    var title = document.getElementById("title");
+    var video = document.getElementById("video");
+    for (i = 0; i < p.length; i++) {
+      p[i].addEventListener("click", function () {
+        var value = this.getAttribute("data-href");
+        video.setAttribute("src", value);
+        var edited= value.slice(0,-4);
+        title.innerHTML = "Laravel Part " + edited;
       }
-    </script>
+      );
+    }
+  </script>
   </body>
